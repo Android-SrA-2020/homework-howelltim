@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
         val resultLabel: TextView = findViewById(R.id.result_text)
 
         resultLabel.text = getString(R.string.newresult_text)
-        Toast.makeText(this, "Dice was rolled!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.dice_was_rolled), Toast.LENGTH_SHORT).show()
     }
 
     private fun resetLabel(){
         val resultLabel: TextView = findViewById(R.id.result_text)
 
-        resultLabel.text = "0"
+        resultLabel.text = getString(R.string.resetlabel_text)
     }
 }
