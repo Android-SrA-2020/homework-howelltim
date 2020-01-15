@@ -3,33 +3,47 @@ package com.example.section1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var diceImage : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rollButton: Button = findViewById(R.id.roll_button)
-        val resetButton: Button = findViewById(R.id.reset_button)
+        diceImage = findViewById(R.id.dice_image)
+
+        val rollButton: Button = this.findViewById(R.id.roll_button)
+        val resetButton: Button = this.findViewById(R.id.reset_button)
 
         rollButton.setOnClickListener { rollDice() }
-        resetButton.setOnClickListener { resetLabel() }
+        resetButton.setOnClickListener { resetImage() }
     }
 
     private fun rollDice() {
-        val resultLabel: TextView = findViewById(R.id.result_text)
+        val randomInt = Random().nextInt(6) + 1
 
-        resultLabel.text = getString(R.string.newresult_text)
-        Toast.makeText(this, getString(R.string.dice_was_rolled), Toast.LENGTH_SHORT).show()
+        val diceImage : ImageView = findViewById(R.id.dice_image)
+        val drawableResource = when (randomInt){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        diceImage.setImageResource(drawableResource)
     }
 
-    private fun resetLabel(){
-        val resultLabel: TextView = findViewById(R.id.result_text)
+    private fun resetImage(){
+        val diceImage: ImageView = findViewById<ImageView>(R.id.dice_image)
 
-        resultLabel.text = getString(R.string.resetlabel_text)
+        diceImage.setImageResource(R.drawable.dice_1)
     }
 }
