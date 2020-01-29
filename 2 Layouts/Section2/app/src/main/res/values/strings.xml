@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">AboutMe</string>
     <string name="name">Tim Howell</string>
+    <string name="yellow_star">Yellow Star</string>
+    <string name="bio">
+        Hi, My name is Tim.\n
+        I am a Web Design Student at NBCC Moncton.\n
+        I enjoy video games and music.\n
+        I have a beautiful, wonderful, and amazing girlfriend who
+        I have been with for 8 months now.
+    </string>
 </resources>
